@@ -5,7 +5,8 @@
   "image": "ghcr.io/pge323m/assignment1/python-devcontainer:latest",
   "extensions": [ 
       "ms-python.python",
-      "ms-toolsai.jupyter"
+      "ms-toolsai.jupyter",
+      "GitHub.copilot"
    ],
   "settings": { 
 				"jupyter.kernels.excludePythonEnvironments": [

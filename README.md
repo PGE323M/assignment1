@@ -16,6 +16,14 @@ https://youtu.be/FU-l1_cIGVo
 
  4. Commit the new file to the repository and push assignment1 and the changes you made back to [github.com](http://github.com).
 
+## Using Copilot for submission
+
+First, create `solution.txt` yourself and enter the required text. After learning the corresponding Terminal commands, ask Copilot to perform the submission workflow with this bounded prompt:
+
+> Run `git status` and confirm that only `solution.txt` is new or modified. Run `python test.py`. If the test passes, commit only `solution.txt` with the message `Complete assignment 1` and push the current branch to GitHub. If another file has changed, the test fails, or the push fails, stop and tell me instead.
+
+Independently verify the result by running `git status` and `git log -1 --oneline`. On GitHub, confirm that the commit appears and that the Actions result passes.
+
  ## Testing
 
 If you would like to check to see if your solution is correct, in the Terminal command window run
