@@ -8,9 +8,9 @@ RUN apt-get update; \
     apt-get -yq install vim; \
     rm -rf /var/lib/apt/lists/*
 
-RUN conda install mamba -c conda-forge -y; \
-    mamba install jupyterlab jupyterlab-git -c conda-forge -y; \
-    if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && mamba env update -n base -f /tmp/conda-tmp/environment.yml; fi \
+RUN conda clean --all --yes \
+    && conda install --name base --channel conda-forge --yes jupyterlab jupyterlab-git \
+    && if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && conda env update --name base --file /tmp/conda-tmp/environment.yml; fi \
     && cat /tmp/conda-tmp/conda_init.txt >> /home/vscode/.bashrc \
-    && rm -rf /tmp/conda-tmp; \
-    jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
+    && rm -rf /tmp/conda-tmp \
+    && jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
