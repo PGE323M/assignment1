@@ -1,6 +1,11 @@
 on: 
   create:
     branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   update-badges:
     runs-on: "ubuntu-latest"
